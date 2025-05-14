@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>TO-DO LIST</title>
+     <style>
+          .nav-bar {
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               background-color: #333;
+               color: #fff;
+               padding: 1em;
+          }
+          .container {
+             display: grid;
+             grid-template-columns: 1fr;
+             gap: 20px;
+             padding: 20px;    
+          }
+          form{
+              display: flex;
+              flex-direction: column;
+          }
+          input[type="text"]. input[type="email"] {
+               padding: 10px;
+               margin-bottom: 20px;
+               border: 1px solid #ccc;
+          }
+          button[type="submit"] {
+               padding: 10px;
+               background-color: #333;
+               color: #fff;
+               border: none;
+               cursor: pointer;
+          }
+          #todo-list {
+               list-style: none;
+               padding: 0;
+               margin: 0;
+          }
+          #todo-list li{
+               padding: 10px;
+               border-bottom: 1px solid #ccc;
+          }
+          @media only screen and (max-width: 768px) {
+               .container {
+                   grid-template-columns: 1fr;
+                }
+          }
+     </style>
+</head>
+<body>
+     <div class="nav-bar">
+          <h2>Navigation Bar</h2>
+     </div>
+     <div class="container">
+         <from id="my-form>
+              <input type="text" id="name" placeholder="Name">
+              <input type="email" id="email" placeholder="Email">
+              <button type="submit">Submit</button>
+         </form>
+         <div>
+             <h2>To-Do List</h2>
+             <input type="text id="todo-input" placeholder="Add Task">
+             <button id="add-todo">Add</button>
+             <ul id="todo-list"></ul>
+         </div>
+     </div>
+     <script>
+          const from = document.getElementById('my-form');
+          const todoInput = document.getElementById('todo-input');
+          const addTodoButton = document.getElementById('add-todo');
+          const todoList = document.getElementById('todo-list');
+          form.addEventListener('submit', (e) => {
+                 e.preventDefault();
+                 const name = document.getElementById('name').value;
+                 const email = document.getElementById('email').value;
+                 if (name !== '' && email !== '') {
+                     console.log('Form submitted');
+                 } else {
+                     alert('please fill out all fields');
+                 }
+          });
+          addTodoButton.addEventListener('click', () => {
+                 const todoText = todoInput.value.trim();
+                 if(todoText !== '') {
+                    const todoItem = document.createElement('li');
+                    todoItem.textContent = todoText;
+                    todoList.appendChild(todoItem);
+                    todoInput.value = '';
+                 }
+          });
+     </script>
+</body>
+</html>
